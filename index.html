@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="gallery">
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/10/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/20/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/30/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/40/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/50/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/60/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/70/500/300" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/id/80/500/300" alt="">
+        </div>
+    </div>
+
+    <div class="gallery-overlay"></div>
+
+    <div class="image-box">
+        <span>&times;</span>
+        <img src="" alt="">
+    </div>
+
+    <script>
+        let gallery = document.querySelector("#gallery");
+
+        gallery.addEventListener("click", function(event) {
+            let currentImagePath = event.target.src;
+
+            if (currentImagePath !== undefined) {
+                let overlay = document.querySelector(".gallery-overlay");
+                let imageBox = document.querySelector(".image-box");
+                let img = document.querySelector(".image-box img");
+
+                overlay.classList.add("gallery-overlay-show");
+                imageBox.classList.add("image-box-show");
+                img.src = currentImagePath;
+            }
+        });
+
+        let close = document.querySelector(".image-box span");
+
+        close.addEventListener("click", function() {
+            let overlay = document.querySelector(".gallery-overlay");
+            let imageBox = document.querySelector(".image-box");
+
+            overlay.classList.remove("gallery-overlay-show");
+            imageBox.classList.remove("image-box-show");
+        });
+    </script>
+</body>
+</html>
